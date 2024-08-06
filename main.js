@@ -9,3 +9,9 @@ dropZone.addEventListener('dragover', function(event) {
 dropZone.addEventListener('drop', function(event) {
 	dropZone.prepend(card)
 })
+
+var myPet = 'Tobey';
+var nameLength = myPet.length;
+
+document.getElementById('output').innerHTML =
+    myPet + ' is a ' + nameLength + ' letter name!';
