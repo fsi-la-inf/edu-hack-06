@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			newButton.textContent = `${numberInput[i]}`;
 
 			// Set initial button color based on marked array
-			if (markedInput[i] && i != 2) {
+			if (markedInput[i] && i != 1) {
 				newButton.style.backgroundColor = 'red';
 			} else {
 				newButton.style.backgroundColor = 'white';
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			newButton.textContent = `${numberOutput[i]}`;
 
 			// Set initial button color based on marked array
-			if (markedOutput[i] && i != 2) {
+			if (markedOutput[i] && i != 1) {
 				newButton.style.backgroundColor = 'red';
 			} else {
 				newButton.style.backgroundColor = 'white';
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				markedInput[2] = false;
 				markedOutput[2] = false;
 			}
-			if (numberOutput[2]) {
+			if (markedOutput[2]) {
 				numberInput[2] = parseInt(numberInput[2]) - parseInt(numberOutput[2]);
 				numberOutput[2] = 0;
 				markedInput[2] = false;
@@ -100,9 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (markedInput[0] && parseInt(numberInput[0]) != 0) {
 				console.log(parseInt(numberInput[0]))
 				numberOutput[0] = parseInt(numberOutput[0]) / parseInt(numberInput[0]);
-				console.log(parseInt(numberOutput[0]) / parseInt(numberInput[0]));
-				console.log(numberOutput[0]);
-				numberOutput[2] = parseInt(numberOutput[2]) / parseInt(numberInput[0]);
+				console.log(numberOutput[2]);
+				numberOutput[2] = parseInt(parseInt(numberOutput[2]) / parseInt(numberInput[0]));
+				console.log(parseInt(numberOutput[2]) / parseInt(numberInput[0]));
+				console.log(numberOutput[2]);
+				numberInput[0] = 1;
 				markedInput[0] = false;
 				markedOutput[0] = false;
 			}
@@ -121,9 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 	// Initial call to populate the buttons
 	updateMake();
 	updateButtonArray();
 
 });
+
+
 
