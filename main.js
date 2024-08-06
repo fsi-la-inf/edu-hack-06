@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const tO = document.getElementById("tO");
 	const submitButton = document.getElementById("submit-button");
 	submitButton.addEventListener("click", () => {
-		numberInput[0] = parseInt(mI.value);
-		numberInput[2] = parseInt(tI.value);
-		numberOutput[0] = parseInt(mO.value);
-		numberOutput[2] = parseInt(tO.value);
+		numberInput[0] = parseFloat(mI.value);
+		numberInput[2] = parseFloat(tI.value);
+		numberOutput[0] = parseFloat(mO.value);
+		numberOutput[2] = parseFloat(tO.value);
 		console.log(numberInput);
 		updateButtonArray();
 	});
@@ -91,32 +91,34 @@ document.addEventListener("DOMContentLoaded", () => {
 		makeButton.addEventListener("click", () => {
 
 			if (markedInput[2]) {
-				numberOutput[2] = parseInt(numberOutput[2]) - parseInt(numberInput[2]);
+				numberOutput[2] = parseFloat(numberOutput[2]) - parseFloat(numberInput[2]);
 				numberInput[2] = 0;
 				markedInput[2] = false;
 				markedOutput[2] = false;
 			}
 			if (markedOutput[2]) {
-				numberInput[2] = parseInt(numberInput[2]) - parseInt(numberOutput[2]);
+				numberInput[2] = parseFloat(numberInput[2]) - parseFloat(numberOutput[2]);
 				numberOutput[2] = 0;
 				markedInput[2] = false;
 				markedOutput[2] = false;
 			}
-			if (markedOutput[0] && parseInt(numberOutput[0]) != 0) {
-				numberOutput[0] = parseInt(numberInput[0]) / parseInt(numberOutput[0]);
-				numberOutput[2] = parseInt(numberInput[2]) / parseInt(numberOutput[0]);
+
+
+
+			if (markedInput[0] && parseFloat(numberInput[0]) != 0) {
+				numberOutput[0] = parseFloat(numberOutput[0]) / parseFloat(numberInput[0]);
+				numberOutput[2] = parseFloat(numberOutput[2]) / parseFloat(numberInput[0]);
+				numberInput[2] = parseFloat(numberInput[2]) / parseFloat(numberInput[0]);
+				numberInput[0] = parseFloat(numberInput[0]) / parseFloat(numberInput[0]);
 				markedInput[0] = false;
 				markedOutput[0] = false;
 			}
+			if (markedOutput[0] && parseFloat(numberOutput[0]) != 0) {
 
-			if (markedInput[0] && parseInt(numberInput[0]) != 0) {
-				console.log(parseInt(numberInput[0]))
-				numberOutput[0] = parseInt(numberOutput[0]) / parseInt(numberInput[0]);
-				console.log(numberOutput[2]);
-				numberOutput[2] = parseInt(parseInt(numberOutput[2]) / parseInt(numberInput[0]));
-				console.log(parseInt(numberOutput[2]) / parseInt(numberInput[0]));
-				console.log(numberOutput[2]);
-				numberInput[0] = 1;
+				numberOutput[2] = parseFloat(numberOutput[2]) / parseFloat(numberOutput[0]);
+				numberInput[2] = parseFloat(numberInput[2]) / parseFloat(numberOutput[0]);
+				numberInput[0] = parseFloat(numberInput[0]) / parseFloat(numberOutput[0]);
+				numberOutput[0] = parseFloat(numberOutput[0]) / parseFloat(numberOutput[0]);
 				markedInput[0] = false;
 				markedOutput[0] = false;
 			}
