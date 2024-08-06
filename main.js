@@ -122,6 +122,22 @@ document.addEventListener("DOMContentLoaded", () => {
 				markedInput[0] = false;
 				markedOutput[0] = false;
 			}
+			if (markedInput[1]) {
+
+				numberOutput[0] = parseFloat(numberOutput[0]) - parseFloat(numberInput[0]);
+				numberInput[0] = 0;
+
+				markedInput[0] = false;
+				markedOutput[0] = false;
+			}
+			if (markedOutput[1]) {
+
+				numberInput[0] = parseFloat(numberInput[0]) - parseFloat(numberOutput[0]);
+				numberOutput[0] = 0;
+
+				markedInput[0] = false;
+				markedOutput[0] = false;
+			}
 
 
 
